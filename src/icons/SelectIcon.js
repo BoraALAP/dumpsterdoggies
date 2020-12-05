@@ -1,10 +1,5 @@
 import React from 'react'
-import styled from '@emotion/styled'
-
-const SVG = styled.svg`
-  padding: 0;
-  width: 0.6rem;
-`
+import styled from 'styled-components'
 
 const SelectIcon = props => {
   return (
@@ -17,5 +12,10 @@ const SelectIcon = props => {
     </SVG>
   )
 }
+
+const SVG = styled.svg`
+  padding: 0;
+  width: 0.6rem;
+`
 
 export default SelectIcon

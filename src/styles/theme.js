@@ -1,0 +1,36 @@
+export const primaryTheme = {
+  font: {
+    header: "'Zilla Slab', serif",
+    body: "'Raleway', sans-serif",
+  },
+  paddingW: '5vw',
+  paddingH: '5vh',
+  responsive: {
+    small: '768px',
+  },
+  color: {
+    primary: 'hsla(190,69%,28%,100%)',
+    primary80: 'hsla(190,69%,28%,80%)',
+    primary60: 'hsla(190,69%,28%,60%)',
+    primary40: 'hsla(190,69%,28%,40%)',
+    secondary: 'hsla(192,43%,50%,100%)',
+    secBg20: 'hsla(192,43%,50%,20%)',
+    tertiary: 'hsla(190,42%,65%,100%)',
+    tertiarySolid: 'hsla(185,25%,90%,90%)',
+    tertiaryBg20: 'hsla(190,42%,65%,20%)',
+    tertiaryBg75: 'hsla(190,42%,65%,75%)',
+    tertiaryBg90: 'hsla(190,42%,65%,90%)',
+    fourth: 'hsla(35,100%,58%,100%)',
+    greyBg: 'hsla(24,22%,97%,100%)',
+    greyMid: 'hsla(24,22%,91%,100%)',
+    body: 'hsla(0,0%,40%,100%)',
+    white: 'hsla(0,0%,100%,100%)',
+    whiteBg70: 'hsla(0,0%,100%,70%)',
+    whiteBg20: 'hsla(0,0%,100%,20%)',
+  },
+  mq: {
+    small: '768px',
+    mid: '991px',
+    large: '1440px',
+  },
+}

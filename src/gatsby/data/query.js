@@ -9,6 +9,16 @@ module.exports.data = {
       }
     }
   }`,
+  blogPosts: `{
+    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+      edges {
+        node {
+          slug
+          publishDate
+        }
+      }
+    }
+  }`,
   pages: `{
     allContentfulPage {
       edges {

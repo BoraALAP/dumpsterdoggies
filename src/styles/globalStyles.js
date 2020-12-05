@@ -1,9 +1,9 @@
-import { css } from '@emotion/core'
-export const globalStyles = css`
-  /* http://meyerweb.com/eric/tools/css/reset/
- v2.0 | 20110126
- License: none (public domain)
-*/
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+@font-face {
+  font-family: "Zilla Slab, Raleway";
+}
   html,
   body,
   div,
@@ -97,8 +97,10 @@ export const globalStyles = css`
   /* Added to Fix Footer to bottom of viewport */
   html,
   body {
-    background: white;
+    background: ${({ theme }) => theme.color.greyBg};
     height: 100%;
+    font-family: ${({ theme }) => theme.font.body};
+    
   }
   .siteRoot {
     height: 100vh;
@@ -166,12 +168,12 @@ export const globalStyles = css`
   }
 
   body {
-    line-height: 1;
     font-size: 100%;
     font-variant-ligatures: none;
     text-rendering: optimizeLegibility;
     text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
     font-weight: 400;
+    line-height: 2;
   }
 
   img {
@@ -207,4 +209,78 @@ export const globalStyles = css`
   body:not(.user-is-tabbing) a:focus {
     outline: none;
   }
+
+  h1,h2,h3,h4, h5{
+    font-family: ${({ theme }) => theme.font.header};
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  h1{
+    
+    max-width:50rem;
+      font-size: 3rem;
+    @media screen and (min-width: ${({ theme }) => theme.mq.small}){
+    font-size: 3.5rem;
+    }
+  }
+  h2{
+      font-size: 2.5rem;
+   
+   @media screen and (min-width: ${({ theme }) => theme.mq.small}){
+    font-size: 3.15rem;
+    }
+  }
+  h3{
+   
+      font-size: 2rem;
+   @media screen and (min-width: ${({ theme }) => theme.mq.small}){
+    font-size: 2.75rem;
+    }
+  }
+
+  h4{
+   
+      font-size: 1.5rem;
+   @media screen and (min-width: ${({ theme }) => theme.mq.small}){
+    font-size: 2.25rem;
+    }
+  }
+
+  h5{
+      font-size: 1.25rem;
+   
+   @media screen and (min-width: ${({ theme }) => theme.mq.small}){
+    font-size: 1.5rem;
+    }
+  }
+
+  h6{
+    font-family: ${({ theme }) => theme.font.body};
+    font-size: 1rem;
+    color: ${({ theme }) => theme.color.body};
+    font-weight: 600;
+    
+  }
+
+  p{
+    font-size: 0.875rem;
+    color: ${({ theme }) => theme.color.body};
+    max-width: 40rem;
+    margin:0;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.color.primary};
+
+    &:active {
+      color: ${({ theme }) => theme.color.primary};
+    }
+    &:focus {
+      color: ${({ theme }) => theme.color.primary};
+    }
+  }
 `
+
+export default GlobalStyle

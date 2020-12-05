@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const Wrapper = styled.div`
@@ -12,16 +12,16 @@ const Box = styled.div`
   justify-content: space-between;
   margin: 0 auto;
   width: 100%;
-  max-width: ${props => props.theme.sizes.maxWidthCentered};
+  max-width: 650px;
   a {
-    background: ${props => props.theme.colors.primary};
+    background: ${({ theme }) => theme.color.primary};
     color: white;
     padding: 1em;
     border-radius: 2px;
     text-decoration: none;
     transition: 0.2s;
     &:hover {
-      background: ${props => props.theme.colors.highlight};
+      background: ${({ theme }) => theme.color.primary};
     }
   }
 `
@@ -41,12 +41,12 @@ const PostLinks = props => {
     <Wrapper>
       <Box>
         {props.previous && (
-          <PreviousLink to={`${props.basePath}/${props.previous.slug}/`}>
+          <PreviousLink to={`${props.basePath}/blog/${props.previous.slug}/`}>
             &#8592; Prev
           </PreviousLink>
         )}
         {props.next && (
-          <NextLink to={`${props.basePath}/${props.next.slug}/`}>
+          <NextLink to={`${props.basePath}/blog/${props.next.slug}/`}>
             Next &#8594;
           </NextLink>
         )}

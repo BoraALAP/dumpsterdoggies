@@ -17,10 +17,10 @@ try {
 
 module.exports = {
   siteMetadata: {
-    title: 'GCN',
+    title: 'Dumpster Doggies',
     description:
-      'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
-    siteUrl: 'https://gcn.netlify.com',
+      'We are volunteers who work hard to help the strays doggies on our spare time. We provide food, medication and shelter to stray dogs in the Kastamonu area. We will will use every bit of our energy and and every penny you give us to support the doggies. Take action and support us today!',
+    siteUrl: 'https://dumpsterdoggies.com/',
     image: '/images/share.jpg',
     menuLinks: [
       {
@@ -41,9 +41,36 @@ module.exports = {
     basePath: '/',
   },
   plugins: [
-    `gatsby-plugin-emotion`,
-    'gatsby-plugin-theme-ui',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/assets/images`,
+        name: 'images',
+      },
+    },
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-plugin-transition-link',
+      options: {
+        layout: require.resolve(`./src/components/Layout.tsx`),
+      },
+    },
     'gatsby-plugin-react-helmet',
+
+    `gatsby-plugin-catch-links`,
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-offline',
+    'gatsby-plugin-netlify',
+
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Raleway:400,500,600', 'Zilla Slab:500,600,700'],
+        },
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -63,7 +90,6 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-catch-links`,
     {
       resolve: 'gatsby-source-contentful',
       options:
@@ -78,7 +104,6 @@ module.exports = {
         head: true,
       },
     },
-    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -91,7 +116,6 @@ module.exports = {
         icon: './static/images/favicon.png',
       },
     },
-    'gatsby-plugin-offline',
     {
       resolve: `gatsby-plugin-schema-snapshot`,
       options: {
@@ -99,6 +123,5 @@ module.exports = {
         update: process.env.GATSBY_UPDATE_SCHEMA_SNAPSHOT,
       },
     },
-    'gatsby-plugin-netlify',
   ],
 }

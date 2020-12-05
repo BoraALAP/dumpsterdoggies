@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import styled from 'styled-components'
 
 const Title = styled.h1`
   font-size: ${props => (props.small ? '2em' : '3em')};
@@ -14,9 +14,9 @@ const Title = styled.h1`
   }
   a {
     transition: all 0.2s;
-    color: ${props => props.theme.colors.text};
+    color: ${({ theme }) => theme.color.body};
     &:hover {
-      color: ${props => props.theme.colors.highlight};
+      color: ${({ theme }) => theme.color.body};
     }
   }
 `

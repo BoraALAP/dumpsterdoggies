@@ -1,15 +1,18 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
+
 import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import PageBody from '../components/PageBody'
 import SEO from '../components/SEO'
+import Layout from '../components/Layout'
 
 const PageTemplate = ({ data }) => {
   const { title, metaDescription, body } = data.contentfulPage
+
+  console.log(data)
   return (
-    <Layout>
+    <>
       <SEO
         title={title}
         description={
@@ -22,7 +25,7 @@ const PageTemplate = ({ data }) => {
         <PageTitle>{title}</PageTitle>
         <PageBody body={body} />
       </Container>
-    </Layout>
+    </>
   )
 }
 

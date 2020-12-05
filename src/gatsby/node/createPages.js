@@ -8,6 +8,27 @@ module.exports = async ({ graphql, actions }) => {
 
   const basePath = config.siteMetadata.basePath || '/'
 
+  // Create a page for each "blog post"
+  const blogPostsQuery = await graphql(query.data.blogPosts)
+  const blogPosts = blogPostsQuery.data.allContentfulBlogPost.edges
+  blogPosts.forEach((post, i) => {
+    const next = i === blogPosts.length - 1 ? null : blogPosts[i + 1].node
+    const prev = i === 0 ? null : blogPosts[i - 1].node
+
+    createPage({
+      path: `${basePath === '/' ? 'blog' : `${basePath}/blog`}/${
+        post.node.slug
+      }/`,
+      component: path.resolve(`./src/templates/blogPost.tsx`),
+      context: {
+        slug: post.node.slug,
+        basePath: basePath === '/' ? '' : basePath,
+        prev,
+        next,
+      },
+    })
+  })
+
   // Create a page for each "post"
   const postsQuery = await graphql(query.data.posts)
   const posts = postsQuery.data.allContentfulPost.edges
