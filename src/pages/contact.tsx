@@ -6,9 +6,10 @@ import ContactForm from '../components/ContactForm'
 import SEO from '../components/SEO'
 
 const Contact = ({ data }) => {
+  const { title, description } = data.allSite.nodes[0].siteMetadata
   return (
     <>
-      <SEO title="Contact" description="Contact description goes here" />
+      <SEO title="Contact" description={description} />
       <Container>
         <PageTitle>Contact</PageTitle>
         <ContactForm />
@@ -16,5 +17,18 @@ const Contact = ({ data }) => {
     </>
   )
 }
+
+export const query = graphql`
+  query {
+    allSite {
+      nodes {
+        siteMetadata {
+          description
+          title
+        }
+      }
+    }
+  }
+`
 
 export default Contact

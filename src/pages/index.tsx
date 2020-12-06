@@ -4,8 +4,10 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
+import SEO from '../components/SEO'
 import Posts from '../components/Pull/Posts'
 import ButtonCards from '../components/ButtonCards'
+import Instagram from '../components/Instagram'
 
 const ButtonsData = [
   {
@@ -28,9 +30,11 @@ const ButtonsData = [
 
 const Index = ({ data }) => {
   console.log(data)
+  const { title, description } = data.allSite.nodes[0].siteMetadata
 
   return (
     <Container>
+      <SEO title="Home" description={description} />
       <PageHeader bg={data.header.childImageSharp.fluid.src}>
         <Title>
           <h3>Join Us</h3>
@@ -92,7 +96,7 @@ const Index = ({ data }) => {
           </Bottom>
         </Wufaw>
       </Detail>
-
+      <Instagram />
       {/* <Posts data={data.allContentfulBlogPost} /> */}
     </Container>
   )
@@ -110,11 +114,12 @@ const ImgS = styled(Img)`
 
 const Bottom = styled.div`
   display: grid;
-
   grid-gap: 2rem;
-  text-align: left;
+  text-align: center;
   justify-content: center;
+  justify-items: center;
   @media screen and (min-width: ${({ theme }) => theme.mq.small}) {
+    text-align: left;
     grid-auto-flow: column;
   }
 `
@@ -227,9 +232,22 @@ const Title = styled.div`
 
 export const query = graphql`
   query {
+    allSite {
+      nodes {
+        siteMetadata {
+          menuLinks {
+            slug
+            name
+          }
+          description
+          siteUrl
+          title
+        }
+      }
+    }
     header: file(relativePath: { eq: "headerImage3.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 800) {
+        fluid(maxWidth: 2000) {
           ...GatsbyImageSharpFluid
         }
       }

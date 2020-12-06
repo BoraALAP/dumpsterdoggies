@@ -2,13 +2,16 @@ import { graphql } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 import PostsListing from '../components/Pull/PostsListing'
+import SEO from '../components/SEO'
 
 const Blog = ({ data }) => {
   const { nodes } = data.allContentfulBlogPost
+  const { title, description } = data.allSite.nodes[0].siteMetadata
   console.log(nodes)
 
   return (
     <Container nodeLength={nodes.length}>
+      <SEO title="Blog" description={description} />
       {nodes.map((node, index) => (
         <PostsListing node={node} index={index} />
       ))}
@@ -47,6 +50,14 @@ export const query = graphql`
           }
         }
         slug
+      }
+    }
+    allSite {
+      nodes {
+        siteMetadata {
+          description
+          title
+        }
       }
     }
   }

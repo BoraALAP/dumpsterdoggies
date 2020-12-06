@@ -5,9 +5,7 @@ export const primaryTheme = {
   },
   paddingW: '5vw',
   paddingH: '5vh',
-  responsive: {
-    small: '768px',
-  },
+
   color: {
     primary: 'hsla(190,69%,28%,100%)',
     primary80: 'hsla(190,69%,28%,80%)',
@@ -29,6 +27,7 @@ export const primaryTheme = {
     whiteBg20: 'hsla(0,0%,100%,20%)',
   },
   mq: {
+    xsmall: '467px',
     small: '768px',
     mid: '991px',
     large: '1440px',

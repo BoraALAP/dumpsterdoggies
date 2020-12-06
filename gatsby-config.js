@@ -21,7 +21,7 @@ module.exports = {
     description:
       'We are volunteers who work hard to help the strays doggies on our spare time. We provide food, medication and shelter to stray dogs in the Kastamonu area. We will will use every bit of our energy and and every penny you give us to support the doggies. Take action and support us today!',
     siteUrl: 'https://dumpsterdoggies.com/',
-    image: '/images/share.jpg',
+    image: '/src/assets/images/favicon.svg',
     menuLinks: [
       {
         name: 'Home',
@@ -32,8 +32,28 @@ module.exports = {
         slug: '/about/',
       },
       {
+        name: 'Adopt',
+        slug: '/adopt/',
+      },
+      {
+        name: 'Blog',
+        slug: '/blog/',
+      },
+      {
         name: 'Contact',
         slug: '/contact/',
+      },
+      {
+        name: 'Spenden',
+        slug: '/spenden/',
+      },
+      {
+        name: 'Sponsor a Doggie',
+        slug: '/sponsor/',
+      },
+      {
+        name: 'Volunteer',
+        slug: '/volunteer/',
       },
     ],
     postsPerFirstPage: 7,
@@ -107,13 +127,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'GCN',
-        short_name: 'GCN',
+        name: 'DumpsterDoggies',
+        short_name: 'DumpsterDoggies',
         start_url: '/',
-        background_color: '#ffffff',
-        theme_color: '#ffffff',
+        background_color: '#f9f7f6',
+        theme_color: '#076D8D',
         display: 'minimal-ui',
-        icon: './static/images/favicon.png',
+        icon: './src/assets/images/favicon.svg',
       },
     },
     {
