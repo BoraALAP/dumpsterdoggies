@@ -13,7 +13,7 @@ const Wrapper = styled.section`
   position: relative;
   min-height: 300px;
   height: auto;
-  @media (min-width: ${({ theme }) => theme.responsive.small}) {
+  @media (min-width: ${({ theme }) => theme.mq.xsmall}) {
     height: ${props => props.height || 'auto'};
   }
 `

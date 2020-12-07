@@ -56,7 +56,7 @@
   "main": "n/a",
   "scripts": {
     "dev": "gatsby develop",
-    "build": "gatsby build",
+    "build": "gatsby clean && gatsby build",
     "serve": "gatsby serve",
     "test": "yarn run lint:css && yarn run lint:js && yarn run check-pretty",
     "setup": "node ./bin/setup.js",

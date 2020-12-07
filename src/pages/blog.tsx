@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import PostsListing from '../components/Pull/PostsListing'
+import PostsListing from '../components/pull/PostsListing'
 import SEO from '../components/SEO'
 
 const Blog = ({ data }) => {
