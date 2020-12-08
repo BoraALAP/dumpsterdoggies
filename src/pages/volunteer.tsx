@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import SEO from '../components/SEO'
 import Button from '../components/ui/Button'
 import TextField from '@material-ui/core/TextField'
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 
 const volunteer = ({ data }) => {
   const { title, description } = data.allSite.nodes[0].siteMetadata
@@ -45,7 +44,7 @@ const volunteer = ({ data }) => {
   }
 
   const handleSubmit = event => {
-    fetch('/?no-cache=1', {
+    fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'volunteer', ...formElements }),
@@ -58,6 +57,21 @@ const volunteer = ({ data }) => {
   return (
     <Container>
       <SEO title="Volunteer" description={description} />
+      <Enterence>
+        <h2>Volunteer</h2>
+        <h6>
+          Thank you for your interest in volunteering. Right now, we are looking
+          for:
+        </h6>
+        <ul>
+          <li>Online help to help with our online accounts</li>
+          <li>Flight volunteers</li>
+
+          <li>In person help in shelter</li>
+          <li>Any other way your unique talents could help us</li>
+        </ul>
+      </Enterence>
+
       <Form
         name="volunteer"
         method="POST"
@@ -66,6 +80,9 @@ const volunteer = ({ data }) => {
         overlay={modal}
         onClick={closeModal}
       >
+        <h4>
+          If you would like to volunteer feel free to fill the form below.
+        </h4>
         <Column>
           <TextField
             id="fname"
@@ -73,6 +90,7 @@ const volunteer = ({ data }) => {
             label="First Name"
             helperText="Required *"
             type="text"
+            required
             onChange={handleChange}
             value={formElements.fName}
             variant="outlined"
@@ -82,6 +100,7 @@ const volunteer = ({ data }) => {
             name="lName"
             label="Last Name"
             type="text"
+            required
             helperText="Required *"
             onChange={handleChange}
             value={formElements.lName}
@@ -93,6 +112,7 @@ const volunteer = ({ data }) => {
           name="email"
           label="Email"
           type="email"
+          required
           helperText="Required *"
           onChange={handleChange}
           value={formElements.email}
@@ -205,6 +225,19 @@ const Modal = styled.div`
   p {
     line-height: 1.6;
     margin: 0 0 2em 0;
+  }
+`
+
+const Enterence = styled.div`
+  display: grid;
+  justify-content: center;
+
+  text-align: left;
+  gap: 1rem;
+  ul {
+    li {
+      list-style: square;
+    }
   }
 `
 
