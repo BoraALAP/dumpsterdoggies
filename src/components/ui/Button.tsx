@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { Link } from 'gatsby'
 
-const Button = ({ children }) => <Container>{children}</Container>
+const Button = props => <Container {...props}>{props.children}</Container>
 
 export const ButtonAni = ({ children, to }) => (
   <ContainerAni to={to}>{children}</ContainerAni>

@@ -6,6 +6,12 @@ import Button from '../components/ui/Button'
 import TextField from '@material-ui/core/TextField'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}
+
 const volunteer = ({ data }) => {
   const { title, description } = data.allSite.nodes[0].siteMetadata
   const [formElements, setFormElements] = useState({
@@ -16,15 +22,45 @@ const volunteer = ({ data }) => {
     contact: '',
     help: '',
   })
+  const [modal, setModal] = useState({ visible: false, openModal: false })
 
   const handleChange = e => {
     setFormElements({ ...formElements, [e.target.name]: e.target.value })
   }
-  console.log(formElements)
+
+  const closeModal = () => {
+    setModal({ ...modal, visible: false })
+  }
+
+  const handleSubmit = event => {
+    fetch('/?no-cache=1', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', formElements }),
+    })
+      .then({
+        fName: '',
+        lName: '',
+        email: '',
+        location: '',
+        contact: '',
+        help: '',
+      })
+      .catch(error => alert(error))
+    event.preventDefault()
+  }
+
   return (
     <Container>
       <SEO title="Volunteer" description={description} />
-      <form name="volunteer" method="POST" data-netlify="true">
+      <Form
+        name="volunteer"
+        method="POST"
+        data-netlify="true"
+        onSubmit={handleSubmit}
+        overlay={modal.openModal}
+        onClick={closeModal}
+      >
         <Column>
           <TextField
             id="fname"
@@ -91,7 +127,14 @@ const volunteer = ({ data }) => {
         />
 
         <Button type="submit">Send</Button>
-      </form>
+        <Modal visible={modal.openModal}>
+          <p>
+            Thank you for reaching out. I will get back to you as soon as
+            possible.
+          </p>
+          <Button onClick={closeModal}>Okay</Button>
+        </Modal>
+      </Form>
     </Container>
   )
 }
@@ -114,6 +157,33 @@ const Column = styled.div`
   display: grid;
   gap: 1rem;
   grid-auto-flow: column;
+`
+
+const Modal = styled.div`
+  display: grid;
+  background: ${({ theme }) => theme.color.white};
+  padding: 2rem;
+  border-radius: 2px;
+  position: fixed;
+  min-width: 75%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  z-index: 99;
+  flex-flow: column;
+  align-items: start;
+  transition: 0.2s all;
+  opacity: ${props => (props.visible ? '1' : '0')};
+  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
+  @media screen and (min-width: ${({ theme }) => theme.mq.small}) {
+    min-width: inherit;
+    max-width: 400px;
+  }
+  p {
+    line-height: 1.6;
+    margin: 0 0 2em 0;
+  }
 `
 
 export const query = graphql`
