@@ -6,12 +6,6 @@ import Button from '../components/ui/Button'
 import TextField from '@material-ui/core/TextField'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
-}
-
 const volunteer = ({ data }) => {
   const { title, description } = data.allSite.nodes[0].siteMetadata
   const [formElements, setFormElements] = useState({
@@ -24,19 +18,25 @@ const volunteer = ({ data }) => {
   })
   const [modal, setModal] = useState({ visible: false, openModal: false })
 
+  const closeModal = () => {
+    setModal({ ...modal, visible: false })
+  }
+
   const handleChange = e => {
     setFormElements({ ...formElements, [e.target.name]: e.target.value })
   }
 
-  const closeModal = () => {
-    setModal({ ...modal, visible: false })
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&')
   }
 
   const handleSubmit = event => {
     fetch('/?no-cache=1', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', formElements }),
+      body: encode({ 'form-name': 'Volunteer', formElements }),
     })
       .then({
         fName: '',
