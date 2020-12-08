@@ -16,14 +16,26 @@ const volunteer = ({ data }) => {
     contact: '',
     help: '',
   })
-  const [modal, setModal] = useState({ visible: false, openModal: false })
+  const [modal, setModal] = useState(false)
 
   const closeModal = () => {
-    setModal({ ...modal, visible: false })
+    setModal(false)
   }
 
   const handleChange = e => {
     setFormElements({ ...formElements, [e.target.name]: e.target.value })
+  }
+
+  const handleSuccess = () => {
+    setFormElements({
+      fName: '',
+      lName: '',
+      email: '',
+      location: '',
+      contact: '',
+      help: '',
+    })
+    setModal(true)
   }
 
   const encode = data => {
@@ -36,16 +48,9 @@ const volunteer = ({ data }) => {
     fetch('/?no-cache=1', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'volunteer', formElements }),
+      body: encode({ 'form-name': 'volunteer', ...formElements }),
     })
-      .then({
-        fName: '',
-        lName: '',
-        email: '',
-        location: '',
-        contact: '',
-        help: '',
-      })
+      .then(handleSuccess)
       .catch(error => alert(error))
     event.preventDefault()
   }
@@ -58,7 +63,7 @@ const volunteer = ({ data }) => {
         method="POST"
         data-netlify="true"
         onSubmit={handleSubmit}
-        overlay={modal.openModal}
+        overlay={modal}
         onClick={closeModal}
       >
         <Column>
@@ -127,7 +132,7 @@ const volunteer = ({ data }) => {
         />
 
         <Button type="submit">Send</Button>
-        <Modal visible={modal.openModal}>
+        <Modal visible={modal}>
           <p>
             Thank you for reaching out. I will get back to you as soon as
             possible.
@@ -151,12 +156,29 @@ const Form = styled.form`
   gap: 2rem;
   max-width: 650px;
   width: 100%;
+  &::before {
+    content: '';
+    background: black;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: 0.2s all;
+    opacity: ${props => (props.overlay ? '.8' : '0')};
+    visibility: ${props => (props.overlay ? 'visible' : 'hidden')};
+  }
 `
 
 const Column = styled.div`
   display: grid;
-  gap: 1rem;
-  grid-auto-flow: column;
+  gap: 2rem;
+
+  @media screen and (min-width: ${({ theme }) => theme.mq.small}) {
+    grid-auto-flow: column;
+    gap: 1rem;
+  }
 `
 
 const Modal = styled.div`
