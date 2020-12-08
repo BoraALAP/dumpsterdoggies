@@ -24,74 +24,74 @@ const volunteer = ({ data }) => {
   return (
     <Container>
       <SEO title="Volunteer" description={description} />
-      <Form name="volunteer" method="POST" data-netlify="true">
+      <form name="volunteer" method="POST" data-netlify="true">
         <Column>
           <TextField
-            id="outlined-helperText"
+            id="fname"
             name="fName"
             label="First Name"
             helperText="Required *"
-            defaultValue=""
+            type="text"
             onChange={handleChange}
             value={formElements.fName}
             variant="outlined"
           />
           <TextField
-            id="outlined-helperText"
+            id="lname"
             name="lName"
             label="Last Name"
+            type="text"
             helperText="Required *"
-            defaultValue=""
             onChange={handleChange}
             value={formElements.lName}
             variant="outlined"
           />
         </Column>
         <TextField
-          id="outlined-helperText"
+          id="email"
           name="email"
           label="Email"
+          type="email"
           helperText="Required *"
           onChange={handleChange}
           value={formElements.email}
-          defaultValue=""
           variant="outlined"
         />
         <Column>
           <TextField
-            id="outlined-helperText"
+            id="location"
             name="location"
             label="Location"
+            type="text"
             onChange={handleChange}
             value={formElements.location}
-            defaultValue=""
             variant="outlined"
           />
           <TextField
-            id="outlined-helperText"
+            id="contact"
             name="contact"
             label="Best Way to Contact You"
+            type="text"
             onChange={handleChange}
             helperText="If it's email leave it empty"
             value={formElements.contact}
-            defaultValue=""
             variant="outlined"
           />
         </Column>
         <TextField
-          id="outlined-helperText"
+          id="help"
           name="help"
           label="How Can You Help"
+          type="text"
           onChange={handleChange}
           multiline
           rows={4}
           value={formElements.help}
-          defaultValue=""
           variant="outlined"
         />
 
         <Button type="submit">Send</Button>
-      </Form>
+      </form>
     </Container>
   )
 }
