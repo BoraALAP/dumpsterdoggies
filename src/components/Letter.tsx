@@ -25,7 +25,7 @@ const Context = styled.div`
   padding: 2rem;
   text-align: left;
   gap: 1rem;
-  width: max-content;
+  width: inherit;
   justify-self: center;
   p,
   h5,

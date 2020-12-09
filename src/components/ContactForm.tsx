@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import TextField from '@material-ui/core/TextField'
 import Button from './ui/Button'
+import FormModal from './FormModal'
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
   Be sure to review the Netlify documentation for more information:
@@ -24,10 +25,12 @@ const ContactForm = () => {
   })
   const [displayModal, setDisplayModal] = useState(false)
 
-  const handleInputChange = event => {
+  const handleInputChange = e => {
+    console.log(state)
+
     setState({
       ...state,
-      [event.name]: event.value,
+      [e.target.name]: e.target.value,
     })
   }
 
@@ -119,13 +122,13 @@ const ContactForm = () => {
       />
       <Button type="submit">Send</Button>
 
-      <Modal visible={displayModal}>
+      <FormModal visible={displayModal}>
         <p>
           Thank you for reaching out. I will get back to you as soon as
           possible.
         </p>
         <Button onClick={closeModal}>Okay</Button>
-      </Modal>
+      </FormModal>
     </Form>
   )
 }
@@ -160,33 +163,6 @@ const Column = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.mq.small}) {
     grid-auto-flow: column;
     gap: 1rem;
-  }
-`
-
-const Modal = styled.div`
-  display: grid;
-  background: ${({ theme }) => theme.color.white};
-  padding: 2rem;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  position: fixed;
-  min-width: 75%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
-  z-index: 99;
-  flex-flow: column;
-  align-items: start;
-  transition: 0.2s all;
-  opacity: ${props => (props.visible ? '1' : '0')};
-  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
-  @media screen and (min-width: ${({ theme }) => theme.mq.small}) {
-    min-width: inherit;
-    max-width: 400px;
-  }
-  p {
-    line-height: 1.6;
-    margin: 0 0 2em 0;
   }
 `
 

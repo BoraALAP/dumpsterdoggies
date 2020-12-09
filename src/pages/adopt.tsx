@@ -11,6 +11,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
 import Letter from '../components/Letter'
+import FormModal from '../components/FormModal'
 
 const Adopt = ({ data }) => {
   const { title, description } = data.allSite.nodes[0].siteMetadata
@@ -243,13 +244,13 @@ const Adopt = ({ data }) => {
         </FormControl>
 
         <Button type="submit">Send</Button>
-        <Modal visible={modal}>
+        <FormModal visible={modal}>
           <p>
             Thank you for reaching out. I will get back to you as soon as
             possible.
           </p>
           <Button onClick={closeModal}>Okay</Button>
-        </Modal>
+        </FormModal>
       </Form>
     </Container>
   )
@@ -289,34 +290,6 @@ const Column = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.mq.small}) {
     grid-auto-flow: column;
     gap: 1rem;
-  }
-`
-
-const Modal = styled.div`
-  display: grid;
-  background: ${({ theme }) => theme.color.white};
-  padding: 2rem;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  position: fixed;
-  min-width: 75%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
-  z-index: 99;
-  flex-flow: column;
-  align-items: start;
-  transition: 0.2s all;
-  text-align: center;
-  opacity: ${props => (props.visible ? '1' : '0')};
-  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
-  @media screen and (min-width: ${({ theme }) => theme.mq.small}) {
-    min-width: inherit;
-    max-width: 400px;
-  }
-  p {
-    line-height: 1.6;
-    margin: 0 0 2em 0;
   }
 `
 
