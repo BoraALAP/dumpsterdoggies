@@ -55,7 +55,7 @@ const Pagination = props => {
 const Wrapper = styled.div`
   width: 100%;
   margin: -1.5rem auto 2.5rem;
-  max-width: 650px;
+  max-width: ${({ theme }) => theme.maxWidth};
   padding: 0 1.5rem;
   display: flex;
   flex-flow: row wrap;
@@ -67,7 +67,7 @@ const Button = styled(Link)`
   background: ${({ theme }) => theme.color.primary};
   color: white;
   padding: 1rem;
-  border-radius: 2px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   margin: 0 0 0 0.5rem;
   cursor: pointer;
   text-decoration: none;
@@ -82,7 +82,7 @@ const Button = styled(Link)`
 
 const Numbers = styled.div`
   border: 1px solid ${({ theme }) => theme.color.secondary};
-  border-radius: 2px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   display: inline-block;
   float: left;
   color: ${({ theme }) => theme.color.text};

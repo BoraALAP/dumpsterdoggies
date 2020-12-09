@@ -40,7 +40,7 @@ const Volunteers = ({ sabahat, cigdem, burak, ender }) => {
       <Content>
         {details.map((item, index) => (
           <Card key={index}>
-            <Img fluid={item.img} />
+            <ImgS fluid={item.img} />
             <TitleContainer>
               <Title>{item.name}</Title>
               <City>{item.city}</City>
@@ -63,6 +63,11 @@ const City = styled.h6`
 
 const Title = styled.h5`
   display: grid;
+`
+
+const ImgS = styled(Img)`
+  display: grid;
+  border-radius: ${({ theme }) => theme.borderRadius};
 `
 
 const TitleContainer = styled.div`

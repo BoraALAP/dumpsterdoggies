@@ -62,6 +62,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: '/assets/icons/', // See below to configure properly
+        },
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/assets/images`,

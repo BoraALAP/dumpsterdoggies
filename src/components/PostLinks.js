@@ -12,12 +12,12 @@ const Box = styled.div`
   justify-content: space-between;
   margin: 0 auto;
   width: 100%;
-  max-width: 650px;
+  max-width: ${({ theme }) => theme.maxWidth};
   a {
     background: ${({ theme }) => theme.color.primary};
     color: white;
     padding: 1em;
-    border-radius: 2px;
+    border-radius: ${({ theme }) => theme.borderRadius};
     text-decoration: none;
     transition: 0.2s;
     &:hover {

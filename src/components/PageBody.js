@@ -88,7 +88,7 @@ const Body = styled.div`
 
   pre {
     margin: 0 0 2em 0;
-    border-radius: 2px;
+    border-radius: ${({ theme }) => theme.borderRadius};
     background: ${({ theme }) => theme.color.secondary} !important;
     span {
       background: inherit !important;

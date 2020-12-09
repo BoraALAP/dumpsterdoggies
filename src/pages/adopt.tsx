@@ -4,17 +4,19 @@ import { graphql } from 'gatsby'
 import SEO from '../components/SEO'
 import Button from '../components/ui/Button'
 import TextField from '@material-ui/core/TextField'
+import Container from '../components/Container'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
+import Letter from '../components/Letter'
 
 const Adopt = ({ data }) => {
   const { title, description } = data.allSite.nodes[0].siteMetadata
   const [formElements, setFormElements] = useState({
     email: '',
-    interestedIn: '',
+    interestedin: '',
     fName: '',
     lName: '',
     address: '',
@@ -38,11 +40,11 @@ const Adopt = ({ data }) => {
   const handleSuccess = () => {
     setFormElements({
       email: '',
-      interestedIn: '',
       fName: '',
       lName: '',
       address: '',
       city: '',
+      interestedin: '',
       postalCode: '',
       occupation: '',
       age: '',
@@ -72,9 +74,7 @@ const Adopt = ({ data }) => {
   return (
     <Container>
       <SEO title="Adopt" description={description} />
-      <Enterence>
-        <h2>Adopt</h2>
-
+      <Letter title="Adopt">
         <p>
           Every time we are able to find a loving home for our dogs, we rejoice!
           Having a pet is something but rescue and adoption have a wholly
@@ -104,7 +104,7 @@ const Adopt = ({ data }) => {
           start to put our doggies that are available for adoption on our
           website starting from September 2020
         </p>
-      </Enterence>
+      </Letter>
 
       <Form
         name="adopt"
@@ -201,6 +201,7 @@ const Adopt = ({ data }) => {
         <FormControl component="fieldset">
           <FormLabel component="legend">Are you over 21?</FormLabel>
           <RadioGroup
+            className="radioGroupS"
             aria-label="age"
             name="age"
             value={formElements.age}
@@ -215,6 +216,7 @@ const Adopt = ({ data }) => {
             Do you own or rent your home?
           </FormLabel>
           <RadioGroup
+            className="radioGroupS"
             aria-label="house"
             name="house"
             value={formElements.house}
@@ -229,6 +231,7 @@ const Adopt = ({ data }) => {
             Do you have any other pets at home?
           </FormLabel>
           <RadioGroup
+            className="radioGroupS"
             aria-label="otherPet"
             name="otherPet"
             value={formElements.otherPet}
@@ -252,18 +255,18 @@ const Adopt = ({ data }) => {
   )
 }
 
-const Container = styled.div`
-  display: grid;
-  gap: 4rem;
-  padding: ${({ theme }) => theme.paddingW};
-  justify-items: center;
-`
-
 const Form = styled.form`
   display: grid;
   gap: 2rem;
-  max-width: 650px;
+  max-width: ${({ theme }) => theme.maxWidth};
   width: 100%;
+  text-align: left;
+  .radioGroupS {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+  }
+
   &::before {
     content: '';
     background: black;
@@ -293,7 +296,7 @@ const Modal = styled.div`
   display: grid;
   background: ${({ theme }) => theme.color.white};
   padding: 2rem;
-  border-radius: 2px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   position: fixed;
   min-width: 75%;
   top: 50%;
@@ -304,6 +307,7 @@ const Modal = styled.div`
   flex-flow: column;
   align-items: start;
   transition: 0.2s all;
+  text-align: center;
   opacity: ${props => (props.visible ? '1' : '0')};
   visibility: ${props => (props.visible ? 'visible' : 'hidden')};
   @media screen and (min-width: ${({ theme }) => theme.mq.small}) {
@@ -313,21 +317,6 @@ const Modal = styled.div`
   p {
     line-height: 1.6;
     margin: 0 0 2em 0;
-  }
-`
-
-const Enterence = styled.div`
-  display: grid;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.color.white};
-  border: 1px solid ${({ theme }) => theme.color.tertiaryBg20};
-  padding: 2rem;
-  text-align: left;
-  gap: 1rem;
-  ul {
-    li {
-      list-style: square;
-    }
   }
 `
 

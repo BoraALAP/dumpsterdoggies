@@ -54,7 +54,7 @@ const AniLinkS = styled(Link)`
   text-align: center;
   box-shadow: 0 0 0 inset ${({ theme }) => theme.color.primary60};
   transition: 300ms ease box-shadow;
-  padding: 0.125rem 0.25rem;
+  padding: ${({ theme }) => theme.borderRadius} 0.25rem;
   width: fit-content;
   &:hover {
     box-shadow: 0 -0.25rem 0 inset ${({ theme }) => theme.color.primary60};

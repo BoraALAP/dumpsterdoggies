@@ -46,10 +46,11 @@ const Container = styled.div`
 
 const Box = styled.div`
   display: grid;
+  border-radius: ${({ theme }) => theme.borderRadius};
   padding: 2rem;
   text-align: left;
   background-color: ${({ theme }) => theme.color.white};
-  box-shadow: -10px 10px 0 ${({ theme }) => theme.color.fourth};
+  box-shadow: -1rem 1rem 0 ${({ theme }) => theme.color.fourth};
   transition: all 0.5s ease;
   grid-template-columns: auto auto;
   align-items: end;
@@ -59,7 +60,7 @@ const Box = styled.div`
   }
 
   &:hover {
-    box-shadow: 5px -5px 0 ${({ theme }) => theme.color.primary80};
+    box-shadow: 0.5rem -0.5rem 0 ${({ theme }) => theme.color.primary80};
     svg {
       transform: scale(1.5);
     }

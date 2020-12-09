@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import PageTitle from '../components/PageTitle'
+
 import Container from '../components/Container'
 
 import SEO from '../components/SEO'
@@ -18,7 +18,7 @@ const NotFoundPage = () => (
   <>
     <SEO title="404" description="Page Not Found" />
     <Container>
-      <PageTitle>Page Not Found</PageTitle>
+      <h2>Page Not Found</h2>
       <Text>
         Please return <Link to="/">home</Link> or use the menu to navigate to a
         different page.

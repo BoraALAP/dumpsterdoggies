@@ -5,7 +5,9 @@ export const primaryTheme = {
   },
   paddingW: '5vw',
   paddingH: '5vh',
-
+  maxWidth: '40rem',
+  borderRadius: '0.125rem',
+  pageGap: '6rem',
   color: {
     primary: 'hsla(190,69%,28%,100%)',
     primary80: 'hsla(190,69%,28%,80%)',
@@ -19,7 +21,7 @@ export const primaryTheme = {
     tertiaryBg75: 'hsla(190,42%,65%,75%)',
     tertiaryBg90: 'hsla(190,42%,65%,90%)',
     fourth: 'hsla(35,100%,58%,100%)',
-    greyBg: 'hsla(24,22%,97%,100%)',
+    greyBg: 'hsla(246, 26%, 98%,100%)',
     greyMid: 'hsla(24,22%,91%,100%)',
     body: 'hsla(0,0%,40%,100%)',
     white: 'hsla(0,0%,100%,100%)',

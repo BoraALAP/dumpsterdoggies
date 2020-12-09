@@ -3,11 +3,33 @@ import styled from 'styled-components'
 
 import { Link } from 'gatsby'
 
-const Button = props => <Container {...props}>{props.children}</Container>
+const Button = props => {
+  return props.href ? (
+    <a href={props.href} target="_blank" rel="nofollow">
+      <Container {...props}>{props.children}</Container>
+    </a>
+  ) : (
+    <Container {...props}>{props.children}</Container>
+  )
+}
 
 export const ButtonAni = ({ children, to }) => (
   <ContainerAni to={to}>{children}</ContainerAni>
 )
+
+export const ButtonIcon = props => {
+  return props.href ? (
+    <a href={props.href} target="_blank" rel="nofollow">
+      <ContainerIcon {...props}>
+        {props.icon} {props.children}
+      </ContainerIcon>
+    </a>
+  ) : (
+    <ContainerIcon {...props}>
+      {props.icon} {props.children}
+    </ContainerIcon>
+  )
+}
 
 const Container = styled.button`
   display: grid;
@@ -17,20 +39,28 @@ const Container = styled.button`
   width: fit-content;
   font-weight: 700;
   font-family: ${({ theme }) => theme.font.header};
-  letter-spacing: 2px;
+  letter-spacing: ${({ theme }) => theme.borderRadius};
   transition: 0.55s ease;
   &:hover {
-    box-shadow: 1px 2px 6px ${({ theme }) => theme.color.primary80};
+    box-shadow: 1px ${({ theme }) => theme.borderRadius} 6px
+      ${({ theme }) => theme.color.primary80};
   }
 
   @media screen and (max-width: ${({ theme }) => theme.mq.small}) {
-    box-shadow: 1px 2px 10px ${({ theme }) => theme.color.primary40};
+    box-shadow: 1px ${({ theme }) => theme.borderRadius} 10px
+      ${({ theme }) => theme.color.primary40};
   }
 
   &:focus,
   &:active {
     color: ${({ theme }) => theme.color.white};
   }
+`
+const ContainerIcon = styled(Container)`
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1rem;
+  align-items: center;
 `
 
 const ContainerAni = styled(Link)`
@@ -41,14 +71,16 @@ const ContainerAni = styled(Link)`
   width: fit-content;
   font-weight: 700;
   font-family: ${({ theme }) => theme.font.header};
-  letter-spacing: 2px;
+  letter-spacing: ${({ theme }) => theme.borderRadius};
   transition: 0.55s ease;
   &:hover {
-    box-shadow: 1px 2px 6px ${({ theme }) => theme.color.primary80};
+    box-shadow: 1px ${({ theme }) => theme.borderRadius} 6px
+      ${({ theme }) => theme.color.primary80};
   }
 
   @media screen and (max-width: ${({ theme }) => theme.mq.small}) {
-    box-shadow: 1px 2px 10px ${({ theme }) => theme.color.primary40};
+    box-shadow: 1px ${({ theme }) => theme.borderRadius} 10px
+      ${({ theme }) => theme.color.primary40};
   }
 
   &:focus,

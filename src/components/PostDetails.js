@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-  max-width: 650px;
+  max-width: ${({ theme }) => theme.maxWidth};
   span {
     margin: 0 0.5rem;
   }

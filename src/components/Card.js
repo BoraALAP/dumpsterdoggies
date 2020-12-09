@@ -6,7 +6,7 @@ import Img from 'gatsby-image'
 const Post = styled.li`
   position: relative;
   border: 1px solid ${({ theme }) => theme.color.secondary};
-  border-radius: 2px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   margin: 0 0 1em 0;
   width: 100%;
   transition: background 0.2s;

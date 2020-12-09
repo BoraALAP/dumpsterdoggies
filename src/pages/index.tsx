@@ -127,7 +127,7 @@ const Bottom = styled.div`
 const Text = styled.div`
   display: grid;
   grid-gap: 1rem;
-  max-width: 650px;
+  max-width: ${({ theme }) => theme.maxWidth};
 `
 
 const Container = styled.div``
@@ -139,7 +139,7 @@ const Detail = styled.div`
   text-align: center;
   grid-gap: 6rem;
   h6 {
-    max-width: 650px;
+    max-width: ${({ theme }) => theme.maxWidth};
     justify-self: center;
   }
 `
@@ -149,7 +149,7 @@ const List = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
-  grid-gap: 4rem;
+  grid-gap: ${({ theme }) => theme.pageGap};
   grid-template-columns: 1fr 1fr;
   justify-self: center;
 `

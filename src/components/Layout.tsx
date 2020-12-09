@@ -7,6 +7,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import Header from './global/Header'
 import SEO from './SEO'
 import { primaryTheme } from '../styles/theme'
+import ScrollTop from './ui/ScrollTop'
 
 const Layout = ({ children }) => {
   // const { title, metaDescription, body } = data.contentfulPage
@@ -23,7 +24,7 @@ const Layout = ({ children }) => {
       <Header />
 
       <Main>{children}</Main>
-
+      <ScrollTop showBelow={150} />
       <Footer />
 
       <GlobalStyle />

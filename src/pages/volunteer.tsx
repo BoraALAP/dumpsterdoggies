@@ -166,15 +166,16 @@ const volunteer = ({ data }) => {
 
 const Container = styled.div`
   display: grid;
-  gap: 4rem;
+  gap: ${({ theme }) => theme.pageGap};
   padding: ${({ theme }) => theme.paddingW};
+  text-align: center;
   justify-items: center;
 `
 
 const Form = styled.form`
   display: grid;
   gap: 2rem;
-  max-width: 650px;
+  max-width: ${({ theme }) => theme.maxWidth};
   width: 100%;
   &::before {
     content: '';
@@ -205,7 +206,7 @@ const Modal = styled.div`
   display: grid;
   background: ${({ theme }) => theme.color.white};
   padding: 2rem;
-  border-radius: 2px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   position: fixed;
   min-width: 75%;
   top: 50%;
@@ -231,13 +232,17 @@ const Modal = styled.div`
 const Enterence = styled.div`
   display: grid;
   justify-content: center;
+  justify-items: center;
 
-  text-align: left;
   gap: 1rem;
+  justify-items: center;
+
   ul {
-    li {
-      list-style: square;
-    }
+    padding: 2rem;
+  }
+  li {
+    text-align: left;
+    list-style: square;
   }
 `
 

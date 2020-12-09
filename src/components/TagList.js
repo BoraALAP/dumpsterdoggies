@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 const List = styled.ul`
   width: 100%;
   margin: 0 auto 1em auto;
-  max-width: 650px;
+  max-width: ${({ theme }) => theme.maxWidth};
 `
 
 const Tag = styled.li`
@@ -16,7 +16,7 @@ const Tag = styled.li`
     transition: 0.2s;
     background: ${({ theme }) => theme.color.tertiary};
     padding: 0.5em;
-    border-radius: 2px;
+    border-radius: ${({ theme }) => theme.borderRadius};
     text-transform: capitalize;
     text-decoration: none;
     color: ${({ theme }) => theme.color.text};

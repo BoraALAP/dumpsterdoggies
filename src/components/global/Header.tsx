@@ -21,7 +21,7 @@ const Header = () => {
         <LogoS to="/" onClick={() => handleClick(false)}>
           <Logo />
         </LogoS>
-        <Nav display={displayNav} onClick={handleClick} />
+        <Nav display={displayNav ? 1 : 0} onClick={handleClick} />
         <NavButton onClick={handleClick}>
           {displayNav ? <X /> : <Menu />}
         </NavButton>

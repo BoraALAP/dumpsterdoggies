@@ -42,7 +42,7 @@ const Title = styled.h1`
   font-weight: 600;
   position: absolute;
   width: 100%;
-  max-width: 650px;
+  max-width: ${({ theme }) => theme.maxWidth};
   padding: 0 1rem;
   top: 50%;
   left: 50%;
