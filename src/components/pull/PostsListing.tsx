@@ -4,9 +4,9 @@ import styled from 'styled-components'
 import PostDetails from '../PostDetails'
 import { Link } from 'gatsby'
 
-const PostsListing = ({ node, index }) => {
+const PostsListing = ({ node }: any) => {
   return (
-    <Link to={`/blog/${node.slug}`} key={index}>
+    <Link to={`/blog/${node.slug}`}>
       <Card>
         <Img bg={node.heroImage.fluid.src} />
         <h5>{node.title}</h5>
