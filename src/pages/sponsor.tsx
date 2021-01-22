@@ -32,7 +32,7 @@ const Sponsor = ({ data }) => {
           <ButtonIcon href="https://www.patreon.com/dumpsterdoggies">
             <Patreon /> Support Us on Patreon
           </ButtonIcon>
-          <ButtonIcon href="paypal.me/DumpsterDoggies ">
+          <ButtonIcon href="https://www.paypal.com/paypalme/dumpsterdoggies">
             <Paypal /> Support Us on Paypal
           </ButtonIcon>
         </Buttons>

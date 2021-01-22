@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 const HeaderTop = ({ footer }) => (
   <Container footer={footer}>
@@ -34,9 +35,9 @@ const HeaderTop = ({ footer }) => (
       </a>
     </Left>
     <Right footer={footer}>
-      <a href="" target="_blank" rel="noopener">
+      <Link to="/sponsor" target="_blank" rel="noopener">
         Donate
-      </a>
+      </Link>
     </Right>
   </Container>
 )
@@ -59,8 +60,11 @@ const Left = styled.div`
   display: grid;
   grid-auto-flow: column;
   gap: 24px;
-
   justify-content: ${props => (props.footer ? 'end' : 'start')};
+  a {
+    font-weight: ${props => (props.footer ? '600' : 'inherit')};
+    letter-spacing: 0.025rem;
+  }
 `
 
 const Right = styled.div`
