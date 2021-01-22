@@ -5,7 +5,7 @@ import PostDetails from '../PostDetails'
 import { Link } from 'gatsby'
 
 const PostsListing = ({ node, index }) => {
-  
+  return (
     <Link to={`/blog/${node.slug}`} key={index}>
       <Card>
         <Img bg={node.heroImage.fluid.src} />
