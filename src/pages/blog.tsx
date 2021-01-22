@@ -6,7 +6,7 @@ import SEO from '../components/SEO'
 
 const Blog = ({ data }) => {
   const { nodes } = data.allContentfulBlogPost
-  const { title, description } = data.allSite.nodes[0].siteMetadata(nodes)
+  const { title, description } = data?.allSite?.nodes[0]?.siteMetadata(nodes)
 
   return (
     <Container nodeLength={nodes.length}>
