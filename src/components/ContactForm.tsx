@@ -26,7 +26,7 @@ const ContactForm = () => {
   const [displayModal, setDisplayModal] = useState(false)
 
   const handleInputChange = e => {
-    console.log(state)
+    state
 
     setState({
       ...state,

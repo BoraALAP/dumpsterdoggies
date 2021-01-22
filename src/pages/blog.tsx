@@ -6,8 +6,7 @@ import SEO from '../components/SEO'
 
 const Blog = ({ data }) => {
   const { nodes } = data.allContentfulBlogPost
-  const { title, description } = data.allSite.nodes[0].siteMetadata
-  console.log(nodes)
+  const { title, description } = data.allSite.nodes[0].siteMetadata(nodes)
 
   return (
     <Container nodeLength={nodes.length}>
@@ -23,7 +22,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin: 4rem 2rem;
-  grid-gap: 1rem;
+  gap: 1rem;
 
   a:first-child {
     grid-column: span 3;

@@ -19,7 +19,7 @@ const Posts = ({ data: { nodes } }) => {
 const Container = styled.div`
   display: grid;
   margin: 1rem 1rem 3rem;
-  grid-gap: 1rem;
+  gap: 1rem;
 `
 
 const Title = styled.h4`
@@ -28,7 +28,7 @@ const Title = styled.h4`
 
 const Content = styled.div`
   display: grid;
-  grid-gap: 1rem;
+  gap: 1rem;
 
   @media screen and (min-width: ${({ theme }) => theme.mq.small}) {
     grid-auto-flow: column;

@@ -7,10 +7,13 @@ const Container = ({ children }) => {
 
 const Wrapper = styled.section`
   display: grid;
-  padding: ${({ theme }) => theme.paddingW};
+  padding: ${({ theme }) => `calc(2*${theme.paddingH}) ${theme.paddingW}`};
   gap: ${({ theme }) => theme.pageGap};
   justify-items: center;
   text-align: center;
+  @media screen and (min-width: ${({ theme }) => theme.mq.mid}) {
+    padding: ${({ theme }) => theme.paddingW};
+  }
 `
 
 export default Container

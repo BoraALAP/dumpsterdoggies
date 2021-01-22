@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import { graphql } from 'gatsby'
 import SEO from '../components/SEO'
-import { ButtonIcon } from '../components/ui/Button'
+import { ButtonAni, ButtonIcon } from '../components/ui/Button'
 import Patreon from '../assets/icons/Patreon'
 import Container from '../components/Container'
 import Paypal from '../assets/icons/Paypal'
@@ -37,7 +38,8 @@ const Sponsor = ({ data }) => {
         </Buttons>
       </Enterence>
       <Donation>
-        <h2>Other ways to sponsor a doggie:</h2>
+        <ButtonAni to="/spenden ">Spenden</ButtonAni>
+        {/* <h2>Other ways to sponsor a doggie:</h2>
         <ul>
           <li>
             <a
@@ -57,7 +59,7 @@ const Sponsor = ({ data }) => {
               In German
             </a>
           </li>
-          <li>
+          {/* <li>
             <a
               href="https://freewixpage.wixsite.com/dumpsterdoggies/futter"
               target="_blank"
@@ -65,8 +67,51 @@ const Sponsor = ({ data }) => {
             >
               Futter
             </a>
+          </li> 
+        </ul> */}
+        {/* <h4>Hier könnt ihr FUTTER bestellen!</h4>
+        <a
+          href="https://www.patifood.com/inebolu-coplugu?fbclid=IwAR08gzmWJRjasYxLqj6dlRjkl_-7sxhnzvxvczGNMNKKYVr1vvyaq4FdGHE"
+          target="_blank"
+          rel="nofollow"
+        >
+          https://www.patifood.com/inebolu-coplugu?fbclid=IwAR08gzmWJRjasYxLqj6dlRjkl_-7sxhnzvxvczGNMNKKYVr1vvyaq4FdGHE
+        </a>
+        <p>
+          Die 600 verlassenen Hunde in der Region sind auf die Futterverteilung
+          von SEBAHAT und CIGDEM angewiesen. Ohne sie kommen sie nicht über die
+          Runden, sie finden zu wenig Abfälle.
+        </p>
+        <p>
+          Die Tierschützerinnen sind unendlich dankbar über jedes Tütchen
+          Futter, über jede Dose Päppel- oder Welpenfutter.
+        </p>
+        <ul>
+          <li>
+            Es ist keine Lieferadresse notwendig. Das Futter wird automatisch an
+            SEBAHAT verschickt!
+          </li>
+
+          <li>1 Türkische Lira = 0,17 Euro</li>
+
+          <li>Bezahlen kann man mit Kreditkarte oder per Vorauskasse.</li>
+
+          <li>
+            Anmelden ist nicht notwendig, empfiehlt sich aber, wenn man immer
+            mal wieder bestellen möchte.
+          </li>
+
+          <li>Guter Qualität und günstig ist der Hersteller TRENDLINE.</li>
+
+          <li>
+            Benötigt wird Trockenfutter, Dosenfutter zum Päppeln, Welpenfutter,
+            Katzenfutter.
           </li>
         </ul>
+        <p>
+          Bei 600 heimatlosen Hunden ist Futter zu jeder Zeit lebensrettend!
+        </p>
+        <p>Wir danken euch herzlichst für eure Unterstützung!</p> */}
       </Donation>
     </Container>
   )

@@ -36,7 +36,7 @@ const Bottom = styled.div`
   padding: 1rem 5vw;
   justify-content: end;
   text-align: right;
-  grid-gap: 8px;
+  gap: 8px;
 `
 
 export default Footer

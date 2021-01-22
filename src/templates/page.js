@@ -8,9 +8,7 @@ import SEO from '../components/SEO'
 import Layout from '../components/Layout'
 
 const PageTemplate = ({ data }) => {
-  const { title, metaDescription, body } = data.contentfulPage
-
-  console.log(data)
+  const { title, metaDescription, body } = data.contentfulPage(data)
   return (
     <>
       <SEO

@@ -41,7 +41,7 @@ const ButtonCards = ({ data }) => {
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  grid-gap: 2rem;
+  gap: 2rem;
 `
 
 const Box = styled.div`
@@ -50,7 +50,7 @@ const Box = styled.div`
   padding: 2rem;
   text-align: left;
   background-color: ${({ theme }) => theme.color.white};
-  box-shadow: -1rem 1rem 0 ${({ theme }) => theme.color.fourth};
+  box-shadow: -0.5rem 0.5rem 0 ${({ theme }) => theme.color.fourth};
   transition: all 0.5s ease;
   grid-template-columns: auto auto;
   align-items: end;
@@ -65,11 +65,15 @@ const Box = styled.div`
       transform: scale(1.5);
     }
   }
+
+  @media screen and (min-width: ${({ theme }) => theme.mq.mid}) {
+    box-shadow: -1rem 1rem 0 ${({ theme }) => theme.color.fourth};
+  }
 `
 
 const Left = styled.div`
   display: grid;
-  grid-gap: 1rem;
+  gap: 1rem;
 `
 
 export default ButtonCards

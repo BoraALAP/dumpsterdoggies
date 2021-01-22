@@ -25,31 +25,34 @@ const About = ({ data }) => {
   return (
     <Container>
       <SEO title="About" description={description} />
-      <Header>
-        Dumpster Doggies is a non-profit charity that acts for stray dogs in
-        northern Turkey.
-      </Header>
-      <Text>
-        <p>
-          We are volunteers who work hard to help the strays doggies on our
-          spare time.
-        </p>
-        <p>
-          We provide food, medication and shelter to stray dogs in the Kastamonu
-          area.
-        </p>
-        <p>
-          We will will use every bit of our energy and and every penny you give
-          us to support the doggies.
-        </p>
-        <p>Take action and support us today!</p>
-      </Text>
+      <Head>
+        <Header>
+          Dumpster Doggies is a non-profit charity that acts for stray dogs in
+          northern Turkey.
+        </Header>
+        <Text>
+          <p>
+            We are volunteers who work hard to help the strays doggies on our
+            spare time.
+          </p>
+          <p>
+            We provide food, medication and shelter to stray dogs in the
+            Kastamonu area.
+          </p>
+          <p>
+            We will will use every bit of our energy and and every penny you
+            give us to support the doggies.
+          </p>
+          <p>Take action and support us today!</p>
+        </Text>
+      </Head>
       <ButtonCards data={ButtonCardData} />
       <Volunteers
         sabahat={data.sabahat.childImageSharp.fluid}
         burak={data.burak.childImageSharp.fluid}
         cigdem={data.cigdem.childImageSharp.fluid}
         ender={data.ender.childImageSharp.fluid}
+        duska={data.duska.childImageSharp.fluid}
       />
       <Letter title="Letter from Our Founter">
         <h4>SABAHAT’S STORY</h4>
@@ -224,9 +227,14 @@ const Header = styled.h1`
   justify-self: center;
 `
 
+const Head = styled.div`
+  display: grid;
+  gap: 2rem;
+`
+
 const Text = styled.div`
   display: grid;
-  grid-gap: 0.65rem;
+  gap: 0.65rem;
   justify-content: center;
 `
 export const query = graphql`
@@ -261,6 +269,13 @@ export const query = graphql`
       }
     }
     ender: file(relativePath: { eq: "ender.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 800) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    duska: file(relativePath: { eq: "duska.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 800) {
           ...GatsbyImageSharpFluid

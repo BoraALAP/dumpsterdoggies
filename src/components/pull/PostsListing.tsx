@@ -5,9 +5,7 @@ import PostDetails from '../PostDetails'
 import { Link } from 'gatsby'
 
 const PostsListing = ({ node, index }) => {
-  console.log(node.slug)
-
-  return (
+  
     <Link to={`/blog/${node.slug}`} key={index}>
       <Card>
         <Img bg={node.heroImage.fluid.src} />
@@ -25,7 +23,7 @@ const PostsListing = ({ node, index }) => {
 const Card = styled.div`
   display: grid;
   padding: 2rem;
-  grid-gap: 2rem;
+  gap: 2rem;
   align-content: start;
   height: 100%;
   background-color: ${({ theme }) => theme.color.white};

@@ -58,7 +58,7 @@ const Container = styled.div`
 const Left = styled.div`
   display: grid;
   grid-auto-flow: column;
-  grid-gap: 24px;
+  gap: 24px;
 
   justify-content: ${props => (props.footer ? 'end' : 'start')};
 `

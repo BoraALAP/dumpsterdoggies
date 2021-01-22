@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
-const Volunteers = ({ sabahat, cigdem, burak, ender }) => {
+const Volunteers = ({ sabahat, cigdem, burak, ender, duska }) => {
   const details = [
     {
       img: sabahat,
@@ -32,6 +32,13 @@ const Volunteers = ({ sabahat, cigdem, burak, ender }) => {
       city: 'Toronto - Izmir',
       body:
         'Ender is an oral surgeon, born in 1962. She lives part time in Toronto, Canada and Izmir, Turkey. She has been helping rescuers and volunteers all over Turkey for 7 years.',
+    },
+    {
+      img: duska,
+      name: 'Duska',
+      city: 'Seattle - Rijeka ',
+      body:
+        'Duska is a Data Scientist and animal lover. She is helping Dumpster Doggies since 2018.',
     },
   ]
   return (
@@ -84,13 +91,18 @@ const Card = styled.div`
 
 const Content = styled.div`
   display: grid;
-  gap: 1rem;
+  gap: 3rem;
   @media screen and (min-width: ${({ theme }) => theme.mq.xsmall}) {
     grid-template-columns: repeat(2, 1fr);
   }
 
   @media screen and (min-width: ${({ theme }) => theme.mq.mid}) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  @media screen and (min-width: ${({ theme }) => theme.mq.large}) {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
   }
 `
 

@@ -29,7 +29,7 @@ const Container = styled.div`
   display: ${props => (props.display ? 'grid' : 'none')};
   grid-auto-flow: column;
   justify-content: end;
-  grid-gap: 24px;
+  gap: 24px;
   padding-bottom: 8px;
 
   @media screen and (max-width: 767px) {

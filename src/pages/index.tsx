@@ -29,7 +29,7 @@ const ButtonsData = [
 ]
 
 const Index = ({ data }) => {
-  console.log(data)
+  data
   const { title, description } = data.allSite.nodes[0].siteMetadata
 
   return (
@@ -104,7 +104,7 @@ const Index = ({ data }) => {
 
 const Wufaw = styled.div`
   display: grid;
-  grid-gap: 2rem;
+  gap: 2rem;
 `
 const ImgS = styled(Img)`
   display: grid;
@@ -114,7 +114,7 @@ const ImgS = styled(Img)`
 
 const Bottom = styled.div`
   display: grid;
-  grid-gap: 2rem;
+  gap: 2rem;
   text-align: center;
   justify-content: center;
   justify-items: center;
@@ -126,7 +126,7 @@ const Bottom = styled.div`
 
 const Text = styled.div`
   display: grid;
-  grid-gap: 1rem;
+  gap: 1rem;
   max-width: ${({ theme }) => theme.maxWidth};
 `
 
@@ -137,7 +137,7 @@ const Detail = styled.div`
   padding: 6rem ${({ theme }) => theme.paddingW};
 
   text-align: center;
-  grid-gap: 6rem;
+  gap: 6rem;
   h6 {
     max-width: ${({ theme }) => theme.maxWidth};
     justify-self: center;
@@ -149,15 +149,18 @@ const List = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
-  grid-gap: ${({ theme }) => theme.pageGap};
+  gap: 2rem;
   grid-template-columns: 1fr 1fr;
   justify-self: center;
+  @media screen and (min-width: ${({ theme }) => theme.mq.small}) {
+    gap: 4rem;
+  }
 `
 const Li = styled.div`
   display: grid;
   grid-auto-flow: row;
   justify-content: center;
-  grid-gap: 1rem;
+  gap: 1rem;
   justify-items: center;
   max-width: 300px;
   text-align: center;
@@ -212,7 +215,7 @@ const Title = styled.div`
   box-sizing: border-box;
   width: 40%;
   max-width: 500px;
-  grid-gap: 2rem;
+  gap: 2rem;
   align-content: end;
   backdrop-filter: blur(20px);
   h1 {

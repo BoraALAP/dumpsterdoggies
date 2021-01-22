@@ -27,7 +27,7 @@ const Spenden = ({ data }) => {
               eselcuktrident@icloud.com
             </a>
           </p>
-          <ButtonIcon href="paypal.me/DumpsterDoggies ">
+          <ButtonIcon href="https://www.paypal.com/paypalme/dumpsterdoggies">
             <Paypal />
             Paypal
           </ButtonIcon>
