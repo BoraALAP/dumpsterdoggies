@@ -112,7 +112,7 @@ const Card = styled.div`
   display: grid;
   gap: 1rem;
   background: ${({ theme }) => theme.color.white};
-  padding: 1rem;
+  padding: 2rem 1rem;
   align-content: start;
   justify-items: center;
   border-radius: ${({ theme }) => theme.borderRadius};

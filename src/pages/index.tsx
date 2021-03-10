@@ -96,7 +96,7 @@ const Index = ({ data }) => {
           </Bottom>
         </Wufaw>
       </Detail>
-      <Instagram />
+      {/* <Instagram /> */}
       {/* <Posts data={data.allContentfulBlogPost} /> */}
     </Container>
   )
